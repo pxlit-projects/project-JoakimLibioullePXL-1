@@ -11,7 +11,8 @@
 	<groupId>be.pxl.services</groupId>
 	<artifactId>Nieuwsartikelen</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Nieuwsartikelen</name>
+    <packaging>pom</packaging>
+    <name>Nieuwsartikelen</name>
 	<description>Nieuwsartikelen</description>
 	<url/>
 	<licenses>
@@ -20,7 +21,10 @@
 	<developers>
 		<developer/>
 	</developers>
-	<scm>
+    <modules>
+        <module>post-service</module>
+    </modules>
+    <scm>
 		<connection/>
 		<developerConnection/>
 		<tag/>
