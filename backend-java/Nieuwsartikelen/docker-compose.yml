@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: gast
+      RABBITMQ_DEFAULT_PASS: gast
+  nieuwsartikelen_service_db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: 'nieuwsartikelen_db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD:
+      MYSQL_ROOT_user: 'root'
+      MYSQL_ROOT_PASSWORD: 'admin'
