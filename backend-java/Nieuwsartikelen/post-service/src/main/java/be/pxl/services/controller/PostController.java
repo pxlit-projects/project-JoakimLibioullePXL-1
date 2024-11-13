@@ -21,7 +21,7 @@ public class PostController {
         postService.add(postRequest);
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @RequestBody PostRequest postRequest) throws Exception {
         System.out.println("Update post: " + id);
@@ -42,4 +42,10 @@ public class PostController {
     public ResponseEntity getAllPublished(){
         return new ResponseEntity(postService.getAllPublished(), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity getById(@PathVariable Long id) throws Exception {
+        return new ResponseEntity(postService.getById(id), HttpStatus.OK);
+    }
+
 }

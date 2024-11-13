@@ -8,6 +8,8 @@ import java.util.List;
 public interface IPostService {
     void add(PostRequest postRequest);
     void update(Long id, PostRequest postRequest) throws Exception;
+
+    PostResponse getById(Long id) throws Exception;
     List<PostResponse> getAll();
     List<PostResponse> getAllConcepts();
     List<PostResponse> getAllPublished();

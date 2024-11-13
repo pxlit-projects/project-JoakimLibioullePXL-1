@@ -33,6 +33,11 @@ public class PostService implements IPostService{
     }
 
     @Override
+    public PostResponse getById(Long id) throws Exception {
+        return mapToPostResponse(postRepository.findById(id).orElseThrow(() -> new Exception("Post with ID:" + id + " doesn't exist.")));
+    }
+
+    @Override
     public List<PostResponse> getAll() {
         List<Post> posts = postRepository.findAll();
         return posts.stream().map(this::mapToPostResponse).toList();

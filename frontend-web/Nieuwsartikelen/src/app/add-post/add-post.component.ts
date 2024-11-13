@@ -3,11 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import { PostService } from '../shared/services/post.service'
 import { Post } from '../shared/models/post.model';
+import {NgIf} from "@angular/common";
+
 
 @Component({
   selector: 'app-add-post',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgIf],
   templateUrl: './add-post.component.html',
   styleUrls: ['./add-post.component.css']
 })
