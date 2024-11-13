@@ -1,0 +1,13 @@
+<div class="container mx-auto">
+  <div class="flex items-center">
+    <form #filterForm="ngForm" (ngSubmit)="onSubmit(filterForm)">
+      <div class="flex items-center">
+        <input type="text" class="px-4 py-2 mr-2" placeholder="Search by Title" name="title" [(ngModel)]="filter.title">
+        <input type="text" class="px-4 py-2 mr-2" placeholder="Search by Text" name="text" [(ngModel)]="filter.text">
+        <input type="text" class="px-4 py-2 mr-2" placeholder="Search by Author" name="author" [(ngModel)]="filter.author">
+        <input type="text" class="px-4 py-2" placeholder="Search by Category" name="category" [(ngModel)]="filter.category">
+        <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Search</button>
+      </div>
+    </form>
+  </div>
+</div>

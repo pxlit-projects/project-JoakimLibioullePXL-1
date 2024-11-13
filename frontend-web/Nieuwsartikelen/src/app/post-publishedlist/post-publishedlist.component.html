@@ -1,0 +1,6 @@
+<app-post-filter (filterChanged)="handleFilter($event)"></app-post-filter>
+<div class="md:container md:mx-auto container mx-auto mt-10">
+  <div class="grid grid-cols-3 gap-6">
+    <app-post-item *ngFor="let post of posts;" [post]="post"></app-post-item>
+  </div>
+</div>

@@ -24,6 +24,7 @@ public class PostService implements IPostService{
         Post post = postRepository.findById(id).orElseThrow(() -> new Exception("Post with ID: " + id + " doesn't exist."));
 
         post.setText(postRequest.getText());
+        post.setText(postRequest.getText());
         post.setCategory(postRequest.getCategory());
         post.setConcept(postRequest.isConcept());
         post.setAuthor(postRequest.getAuthor());
@@ -52,6 +53,7 @@ public class PostService implements IPostService{
 
     private Post mapToPost(PostRequest postRequest){
         return Post.builder()
+                .title(postRequest.getTitle())
                 .text(postRequest.getText())
                 .author(postRequest.getAuthor())
                 .category(postRequest.getCategory())
@@ -63,6 +65,7 @@ public class PostService implements IPostService{
     private PostResponse mapToPostResponse(Post post){
         return PostResponse.builder()
                 .id(post.getId())
+                .title(post.getTitle())
                 .author(post.getAuthor())
                 .category(post.getCategory())
                 .text(post.getText())

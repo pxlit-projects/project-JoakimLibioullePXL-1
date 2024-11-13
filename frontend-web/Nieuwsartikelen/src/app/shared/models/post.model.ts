@@ -1,4 +1,5 @@
 export class Post {
+  title: string;
   text: string;
   author: string;
   category: string;
@@ -6,7 +7,8 @@ export class Post {
   createdAt?: Date;
   id?: number;
 
-  constructor(text: string, author: string, category: string, isConcept: boolean = true) {
+  constructor(title: string, text: string, author: string, category: string, isConcept: boolean = true) {
+    this.title = title;
     this.text = text;
     this.author = author;
     this.category = category;
