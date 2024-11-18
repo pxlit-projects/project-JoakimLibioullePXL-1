@@ -11,11 +11,16 @@
 De webapp (gebruikt door gebruiker, redacteur of hoofd redacteur) zal synchroon communiceren met de API Gateway.
 Deze zal op zijn beurt communiceren met de correcte microservices.
 
-De microservices zouden kunnen communiceren via RabbitMQ. Dan word er een message bus aangemaakt om bijvoorbeeld een review te plaatsen en deze te linken aan een post.
-Deze post word dan opgehaald via RabbitMQ.
+Communicatie intern backend: 
 
-Er zou ook gewerkt kunnen worden met OpenFeign om te communiceren tussen CommentService en PostService.
+US7: Als redacteur wil ik ingediende posts kunnen bekijken en goedkeuren of afwijzen zodat...
+US9: Als redacteur wil ik opmerkingen kunnen toevoegen bij afwijzen van een post, zodat …
 
-Samengevat:
-Communicatie tussen PostService & ReviewService (om post op te halen) = RabbitMQ
-Communicatie tussen PostService & CommentService (om post op te halen) = OpenFeign
+Om een post een status te geven moet de post eerst opgehaald worden om vervolgens deze een status te geven.
+Om een post een opmerking te geven moet deze ook eerst opgehaald worden om vervolgens aan dit post id een opmerking te kunnen samenhangen.
+
+Hiervoor word RabbitMQ gebruikt om de post op te halen. Dit zal asynchroon gebeuren.
+
+US10 : Als gebruiker wil ik een reactie kunnen plaatsen op een post, zodat …
+
+Om een reactie te geven moet de post opgehaald worden. Hiervoor zal OpenFeign gebruikt worden. Dit zal synchroon gebeuren.
