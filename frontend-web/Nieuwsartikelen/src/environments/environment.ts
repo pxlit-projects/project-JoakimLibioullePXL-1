@@ -1,4 +1,4 @@
 export const environment = {
   isProduction: true,
-  apiUrl: 'https://prod.pxl.be/api',
+  apiUrl: 'http://localhost:8083/',
 };
