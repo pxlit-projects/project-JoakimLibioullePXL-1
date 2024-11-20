@@ -1,4 +1,4 @@
-import { Component, OnDestroy, inject } from '@angular/core';
+import {Component, OnDestroy, inject} from '@angular/core';
 import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { PostService } from '../shared/services/post.service';
 import { Post } from '../shared/models/post.model';
