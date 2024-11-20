@@ -4,11 +4,12 @@ import { FilterComponent } from '../filter/filter.component';
 import { Post } from '../shared/models/post.model';
 import { PostFilter } from '../shared/models/filter.model';
 import { PostService } from '../shared/services/post.service';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 
 @Component({
   selector: 'app-post-publishedlist',
   standalone: true,
-  imports: [PostItemComponent, FilterComponent],
+  imports: [PostItemComponent, FilterComponent, CommonModule],
   templateUrl: './post-publishedlist.component.html',
   styleUrls: ['./post-publishedlist.component.css']
 })

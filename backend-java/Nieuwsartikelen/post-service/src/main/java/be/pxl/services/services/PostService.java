@@ -23,12 +23,12 @@ public class PostService implements IPostService{
     public void update(Long id, PostRequest postRequest) throws Exception {
         Post post = postRepository.findById(id).orElseThrow(() -> new Exception("Post with ID: " + id + " doesn't exist."));
 
+        post.setTitle(postRequest.getTitle());
         post.setText(postRequest.getText());
         post.setText(postRequest.getText());
         post.setCategory(postRequest.getCategory());
         post.setConcept(postRequest.isConcept());
         post.setAuthor(postRequest.getAuthor());
-
         postRepository.save(post);
     }
 

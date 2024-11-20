@@ -3,12 +3,12 @@ import { AsyncPipe, NgClass, NgIf } from '@angular/common';
 import { PostService } from '../shared/services/post.service';
 import { Post } from '../shared/models/post.model';
 import { Observable, Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-post-detail',
   standalone: true,
-  imports: [NgIf, NgClass, AsyncPipe],
+  imports: [NgIf, NgClass, AsyncPipe, RouterLink],
   templateUrl: './post-detail.component.html',
   styles: []
 })

@@ -4,11 +4,12 @@ import { FilterComponent } from '../filter/filter.component';
 import { Post } from '../shared/models/post.model';
 import { PostFilter } from '../shared/models/filter.model';
 import { PostService } from '../shared/services/post.service';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 
 @Component({
   selector: 'app-post-conceptlist',
   standalone: true,
-  imports: [PostItemComponent, FilterComponent],
+  imports: [CommonModule, PostItemComponent, FilterComponent],
   templateUrl: './post-conceptlist.component.html',
   styleUrls: ['./post-conceptlist.component.css']
 })

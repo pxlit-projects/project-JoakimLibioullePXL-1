@@ -1,10 +1,13 @@
 <div *ngIf="post$ | async as post">
   <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
     <div class="px-6 py-4">
-      <div class="font-bold text-xl mb-2">{{post.title}}</div>
+      <p class="text-gray-700 mb-2">Title: {{post.title}}</p>
       <p class="text-gray-700 mb-2">Author: {{post.author}}</p>
       <p class="text-gray-700 mb-2">Category: {{post.category}}</p>
       <p class="text-gray-700 mb-2">Status: {{post.isConcept ? 'Concept' : 'Published'}}</p>
     </div>
   </div>
+  <button [routerLink]="['/edit-post', post.id]" routerLinkActive="router-link-active" class="bg-green-500 hover:bg-green-700 text-white font-bold mt-4 mb-4 py-2 px-2 rounded">
+    Edit Post
+  </button>
 </div>

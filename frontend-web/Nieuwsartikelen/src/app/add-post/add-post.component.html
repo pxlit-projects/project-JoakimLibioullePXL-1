@@ -1,7 +1,17 @@
 <div class="container mx-auto mt-5">
   <h2 class="text-xl mb-3">Add Post</h2>
   <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-
+    <!-- Text Field -->
+    <div class="mb-4">
+      <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
+      <textarea
+        id="title"
+        formControlName="title"
+        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+      <div *ngIf="postForm.get('text')?.touched && postForm.get('text')?.hasError('required')" class="text-red-500 text-sm mt-1">
+        Title is required
+      </div>
+    </div>
     <!-- Text Field -->
     <div class="mb-4">
       <label for="text" class="block text-gray-700 text-sm font-bold mb-2">Text:</label>
@@ -45,13 +55,19 @@
     <!-- Is Concept Checkbox -->
     <div class="mb-4">
       <label for="isConcept" class="block text-gray-700 text-sm font-bold mb-2">Is Concept:</label>
-      <input
-        type="checkbox"
+      <button
+        type="button"
         id="isConcept"
-        formControlName="isConcept"
-        class="shadow appearance-none border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      />
+        (click)="toggleIsConcept()"
+        [class.bg-blue-500]="postForm.get('isConcept')?.value"
+        [class.bg-gray-200]="!postForm.get('isConcept')?.value"
+        [class.text-white]="postForm.get('isConcept')?.value"
+        class="py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+      >
+        {{ postForm.get('isConcept')?.value ? 'True' : 'False' }}
+      </button>
     </div>
+
 
     <!-- Submit Button -->
     <button

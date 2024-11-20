@@ -4,6 +4,7 @@ import {PostConceptListComponent} from "./post-conceptlist/post-conceptlist.comp
 import {AddPostComponent} from "./add-post/add-post.component";
 import {PostPublishedListComponent} from "./post-publishedlist/post-publishedlist.component";
 import {PostDetailComponent} from "./post-detail/post-detail.component";
+import {EditPostComponent} from "./edit-post/edit-post.component";
 
 export const routes: Routes = [
   {path: 'concepts', component: PostConceptListComponent},
@@ -11,5 +12,6 @@ export const routes: Routes = [
   {path: 'add', component: AddPostComponent},
   {path: '', redirectTo: 'published', pathMatch: 'full'},
   {path: 'post/:id', component: PostDetailComponent},
+  {path: 'edit-post/:id', component: EditPostComponent},
   {path: 'add', component: AddPostComponent, canDeactivate: [confirmLeaveGuard]},
 ];

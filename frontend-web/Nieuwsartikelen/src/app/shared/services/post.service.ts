@@ -9,7 +9,7 @@ import {PostFilter} from "../models/filter.model";
   providedIn: 'root'
 })
 export class PostService {
-  private api: string = environment.apiUrl + 'api/post';
+  private api: string = environment.apiUrl + 'post/api/post';
   private http: HttpClient = inject(HttpClient);
 
   // Methode om 1 post op te halen met ID
@@ -34,6 +34,7 @@ export class PostService {
 
   // Methode om een nieuwe post toe te voegen
   addPost(post: Post): Observable<Post> {
+    console.log("Post service: " + post.isConcept)
     return this.http.post<Post>(this.api, post);
   }
 

@@ -24,7 +24,7 @@ public class PostController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void update(@PathVariable Long id, @RequestBody PostRequest postRequest) throws Exception {
-        System.out.println("Update post: " + id);
+        System.out.println("Update post: " + postRequest);
         postService.update(id, postRequest);
     }
 

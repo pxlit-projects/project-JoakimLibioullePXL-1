@@ -19,10 +19,11 @@ export class AddPostComponent {
   fb: FormBuilder = inject(FormBuilder);
 
   postForm: FormGroup = this.fb.group({
+    title: ['', Validators.required],
     text: ['', Validators.required],
     author: ['', Validators.required],
     category: ['', Validators.required],
-    isConcept: [false]
+    isConcept: [true]
   });
 
   onSubmit() {
@@ -30,8 +31,12 @@ export class AddPostComponent {
       const newPost: Post = { ...this.postForm.value };
       this.postService.addPost(newPost).subscribe(() => {
         this.postForm.reset();
-        this.router.navigate(['/posts']); // Navigeer naar de posts-pagina na toevoegen
+        this.router.navigate(['/published']); // Navigeer naar de posts-pagina na toevoegen
       });
     }
+  }
+  toggleIsConcept(): void {
+    const currentValue = this.postForm.get('isConcept')?.value;
+    this.postForm.get('isConcept')?.setValue(!currentValue);
   }
 }
