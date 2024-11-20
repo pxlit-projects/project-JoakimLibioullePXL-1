@@ -43,16 +43,22 @@ export class PostService {
     return this.http.put<void>(`${this.api}/${id}`, post);
   }
 
-  filterPosts(filter: PostFilter): Observable<Post[]> {
-    return this.http.get<Post[]>(this.api).pipe(
+  filterConceptPosts(filter: PostFilter): Observable<Post[]> {
+    return this.http.get<Post[]>(this.api + "/isConcept").pipe(
       map((posts: Post[]) => posts.filter(post => this.isPostMatchingFilter(post, filter)))
     );
   }
 
-  private isPostMatchingFilter(post: Post, filter: PostFilter): boolean {
-    const matchesTitle = post.title.toLowerCase().includes(filter.title.toLowerCase());
-    const matchesCategory = post.category.toLowerCase().includes(filter.category.toLowerCase());
-    const matchesAuthor = post.author.toLowerCase().includes(filter.author.toLowerCase());
+  filterPublishedPosts(filter: PostFilter): Observable<Post[]> {
+    return this.http.get<Post[]>(this.api + "/isPublished").pipe(
+      map((posts: Post[]) => posts.filter(post => this.isPostMatchingFilter(post, filter)))
+    );
+  }
+
+  private isPostMatchingFilter(post: Post, filter: PostFilter) {
+    const matchesTitle = post.title && post.title.toLowerCase().includes(filter.title?.toLowerCase() || '');
+    const matchesCategory = post.category && post.category.toLowerCase().includes(filter.category?.toLowerCase() || '');
+    const matchesAuthor = post.author && post.author.toLowerCase().includes(filter.author?.toLowerCase() || '');
 
     return matchesTitle && matchesCategory && matchesAuthor;
   }

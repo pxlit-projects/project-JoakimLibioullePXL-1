@@ -26,7 +26,7 @@ export class PostPublishedListComponent implements OnInit {
   }
 
   handleFilter(filter: PostFilter): void {
-    this.postService.filterPosts(filter).subscribe({
+    this.postService.filterPublishedPosts(filter).subscribe({
       next: (posts) => {
         this.posts = posts;
       }
