@@ -1,0 +1,60 @@
+/* Filter container */
+.filter-container {
+  background-color: #f9f9f9; /* Lichtgrijze achtergrond */
+  padding: 20px; /* Ruimte rondom */
+  margin: 20px 0; /* Ruimte boven en onder */
+  border-radius: 8px; /* Afgeronde hoeken */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiele schaduw */
+}
+
+/* Form styling */
+.filter-form {
+  display: flex; /* Flex layout voor inputs */
+  flex-wrap: wrap; /* Inputs naar volgende regel als er geen ruimte is */
+  gap: 10px; /* Ruimte tussen inputs */
+  align-items: center; /* Verticale uitlijning van inputs */
+}
+
+/* Input styling */
+.filter-input {
+  flex: 1 1 200px; /* Responsieve breedte */
+  padding: 10px; /* Ruimte in de input */
+  border: 1px solid #ccc; /* Lichte rand */
+  border-radius: 4px; /* Afgeronde hoeken */
+  font-size: 14px; /* Tekstgrootte */
+  transition: border-color 0.3s ease; /* Animatie voor focus */
+}
+
+/* Input focus state */
+.filter-input:focus {
+  border-color: #333; /* Donkerdere rand bij focus */
+  outline: none; /* Verwijder standaard outline */
+}
+
+/* Button styling */
+.filter-button {
+  background-color: #333; /* Donkere knopachtergrond */
+  color: #fff; /* Witte tekst */
+  padding: 10px 20px; /* Ruimte rondom tekst */
+  border: none; /* Geen rand */
+  border-radius: 4px; /* Afgeronde hoeken */
+  cursor: pointer; /* Cursor als handje */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Animatie voor hover */
+}
+
+/* Button hover state */
+.filter-button:hover {
+  background-color: #575757; /* Lichtere achtergrond bij hover */
+  transform: translateY(-2px); /* Klein opwaarts effect */
+}
+
+/* Responsieve layout */
+@media (max-width: 768px) {
+  .filter-form {
+    flex-direction: column; /* Zet inputs onder elkaar op kleinere schermen */
+  }
+
+  .filter-input {
+    flex: 1 1 auto; /* Volledige breedte op kleine schermen */
+  }
+}

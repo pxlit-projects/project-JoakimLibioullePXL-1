@@ -7,7 +7,7 @@ import { PostFilter } from "../shared/models/filter.model";
   standalone: true,
   imports: [FormsModule],
   templateUrl: './filter.component.html',
-  styles: []
+  styleUrl: './filter.component.css',
 })
 export class FilterComponent {
   filter: PostFilter = { title: '', text: '', author: '', category: '' };
