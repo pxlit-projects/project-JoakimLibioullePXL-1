@@ -1,0 +1,9 @@
+/* Post List Container */
+.post-list {
+  display: grid; /* Gebruik grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsieve kolommen */
+  gap: 20px; /* Ruimte tussen items */
+  padding: 20px; /* Binnenruimte rondom de lijst */
+  background-color: #f9f9f9; /* Lichtgrijze achtergrond */
+  border-radius: 8px; /* Afgeronde hoeken */
+}

@@ -1,0 +1,55 @@
+/* Post Item Container */
+.post-item {
+  background-color: #fff; /* Witte achtergrond */
+  border: 1px solid #ddd; /* Lichte rand */
+  border-radius: 8px; /* Afgeronde hoeken */
+  padding: 15px; /* Binnenruimte */
+  margin-bottom: 20px; /* Ruimte tussen items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiele schaduw */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animatie */
+}
+
+/* Hover Effect */
+.post-item:hover {
+  transform: translateY(-5px); /* Lichte opwaartse beweging */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Versterkte schaduw */
+}
+
+/* Titel Styling */
+.post-title {
+  font-size: 1.5rem; /* Grotere titeltekst */
+  font-weight: bold; /* Vetgedrukt */
+  margin-bottom: 10px; /* Ruimte onder de titel */
+}
+
+/* Auteur Styling */
+.post-author {
+  color: #555; /* Gedempte tekstkleur */
+  font-size: 0.9rem; /* Kleinere tekst */
+  margin-bottom: 5px; /* Ruimte onder de auteur */
+}
+
+/* Categorie Styling */
+.post-category {
+  color: #777; /* Nog lichtere tekstkleur */
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+/* Knop Styling */
+.post-button {
+  background-color: #333; /* Donkere knopachtergrond */
+  color: #fff; /* Witte tekst */
+  border: none; /* Geen rand */
+  border-radius: 4px; /* Afgeronde hoeken */
+  padding: 8px 12px; /* Ruimte rondom */
+  cursor: pointer; /* Hand-cursor */
+  font-size: 0.9rem; /* Tekstgrootte */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Animatie */
+}
+
+/* Knop Hover Effect */
+.post-button:hover {
+  background-color: #575757; /* Lichtere achtergrond bij hover */
+  transform: translateY(-2px); /* Kleine opwaartse beweging */
+}
