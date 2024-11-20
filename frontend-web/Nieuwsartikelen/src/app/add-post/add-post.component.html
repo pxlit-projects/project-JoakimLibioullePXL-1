@@ -1,80 +1,76 @@
-<div class="container mx-auto mt-5">
-  <h2 class="text-xl mb-3">Add Post</h2>
-  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
-    <!-- Text Field -->
-    <div class="mb-4">
-      <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title:</label>
+<div class="add-post-container">
+  <h2 class="form-title">Add Post</h2>
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="add-post-form">
+    <!-- Title Field -->
+    <div class="form-group">
+      <label for="title" class="form-label">Title:</label>
       <textarea
         id="title"
         formControlName="title"
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-      <div *ngIf="postForm.get('text')?.touched && postForm.get('text')?.hasError('required')" class="text-red-500 text-sm mt-1">
+        class="form-input"
+        placeholder="Enter the title of your post"></textarea>
+      <div class="form-error" *ngIf="postForm.get('title')?.touched && postForm.get('title')?.hasError('required')">
         Title is required
       </div>
     </div>
+
     <!-- Text Field -->
-    <div class="mb-4">
-      <label for="text" class="block text-gray-700 text-sm font-bold mb-2">Text:</label>
+    <div class="form-group">
+      <label for="text" class="form-label">Text:</label>
       <textarea
         id="text"
         formControlName="text"
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
-      <div *ngIf="postForm.get('text')?.touched && postForm.get('text')?.hasError('required')" class="text-red-500 text-sm mt-1">
+        class="form-input"
+        placeholder="Write the content of your post"></textarea>
+      <div class="form-error" *ngIf="postForm.get('text')?.touched && postForm.get('text')?.hasError('required')">
         Text is required
       </div>
     </div>
 
     <!-- Author Field -->
-    <div class="mb-4">
-      <label for="author" class="block text-gray-700 text-sm font-bold mb-2">Author:</label>
+    <div class="form-group">
+      <label for="author" class="form-label">Author:</label>
       <input
         type="text"
         id="author"
         formControlName="author"
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      />
-      <div *ngIf="postForm.get('author')?.touched && postForm.get('author')?.hasError('required')" class="text-red-500 text-sm mt-1">
+        class="form-input"
+        placeholder="Enter the author's name" />
+      <div class="form-error" *ngIf="postForm.get('author')?.touched && postForm.get('author')?.hasError('required')">
         Author is required
       </div>
     </div>
 
     <!-- Category Field -->
-    <div class="mb-4">
-      <label for="category" class="block text-gray-700 text-sm font-bold mb-2">Category:</label>
+    <div class="form-group">
+      <label for="category" class="form-label">Category:</label>
       <input
         type="text"
         id="category"
         formControlName="category"
-        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-      />
-      <div *ngIf="postForm.get('category')?.touched && postForm.get('category')?.hasError('required')" class="text-red-500 text-sm mt-1">
+        class="form-input"
+        placeholder="Enter the post category" />
+      <div class="form-error" *ngIf="postForm.get('category')?.touched && postForm.get('category')?.hasError('required')">
         Category is required
       </div>
     </div>
 
     <!-- Is Concept Checkbox -->
-    <div class="mb-4">
-      <label for="isConcept" class="block text-gray-700 text-sm font-bold mb-2">Is Concept:</label>
+    <div class="form-group">
+      <label for="isConcept" class="form-label">Is Concept:</label>
       <button
         type="button"
         id="isConcept"
         (click)="toggleIsConcept()"
-        [class.bg-blue-500]="postForm.get('isConcept')?.value"
-        [class.bg-gray-200]="!postForm.get('isConcept')?.value"
-        [class.text-white]="postForm.get('isConcept')?.value"
-        class="py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      >
+        class="form-toggle-button">
         {{ postForm.get('isConcept')?.value ? 'True' : 'False' }}
       </button>
     </div>
 
-
-    <!-- Submit Button -->
-    <button
-      type="submit"
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-      [disabled]="!postForm.valid">
-      Add Post
-    </button>
+    <!-- Buttons -->
+    <div class="form-buttons">
+      <button type="submit" class="form-submit-button" [disabled]="!postForm.valid">Add Post</button>
+      <button type="button" class="form-reset-button" (click)="onReset()">Reset</button>
+    </div>
   </form>
 </div>

@@ -39,4 +39,14 @@ export class AddPostComponent {
     const currentValue = this.postForm.get('isConcept')?.value;
     this.postForm.get('isConcept')?.setValue(!currentValue);
   }
+  onReset(): void {
+    this.postForm.reset({
+      title: '',
+      text: '',
+      author: '',
+      category: '',
+      isConcept: false, // Standaardwaarde terugzetten
+    });
+  }
+
 }

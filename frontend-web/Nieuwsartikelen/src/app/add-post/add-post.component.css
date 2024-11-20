@@ -1,3 +1,119 @@
-.ng-invalid .ng-touched{
-  border: 1px solid red;
+/* Container styling */
+.add-post-container {
+  background-color: #fff; /* Witte achtergrond */
+  padding: 20px; /* Binnenruimte */
+  margin: 20px 0; /* Ruimte rondom */
+  border-radius: 8px; /* Afgeronde hoeken */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiele schaduw */
+}
+
+/* Titel styling */
+.form-title {
+  font-size: 1.8rem; /* Grotere titel */
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333; /* Donkere tekstkleur */
+}
+
+/* Formulier layout */
+.add-post-form {
+  display: flex;
+  flex-direction: column; /* Inputs onder elkaar */
+  gap: 15px; /* Ruimte tussen groepen */
+}
+
+/* Formuliergroepen */
+.form-group {
+  display: flex;
+  flex-direction: column; /* Input en label onder elkaar */
+}
+
+/* Labels */
+.form-label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #555; /* Gedempte tekstkleur */
+}
+
+/* Inputs */
+.form-input {
+  padding: 10px; /* Binnenruimte */
+  border: 1px solid #ccc; /* Randkleur */
+  border-radius: 4px; /* Afgeronde hoeken */
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: #333; /* Donkerdere rand bij focus */
+  outline: none;
+}
+
+/* Error berichten */
+.form-error {
+  font-size: 0.85rem;
+  color: #d9534f; /* Rood voor fouten */
+  margin-top: 5px;
+}
+
+/* Toggle Button */
+.form-toggle-button {
+  background-color: #333; /* Donkere knopachtergrond */
+  color: #fff; /* Witte tekst */
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-toggle-button:hover {
+  background-color: #575757; /* Lichtere achtergrond bij hover */
+  transform: translateY(-2px); /* Klein opwaarts effect */
+}
+
+/* Submit Button */
+.form-submit-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-submit-button:hover {
+  background-color: #575757;
+  transform: translateY(-2px);
+}
+
+.form-submit-button:disabled {
+  background-color: #ccc; /* Gedempte achtergrond als uitgeschakeld */
+  cursor: not-allowed;
+}
+/* Buttons Group */
+.form-buttons {
+  display: flex;
+  gap: 10px; /* Ruimte tussen knoppen */
+  margin-top: 15px;
+}
+
+/* Reset Button */
+.form-reset-button {
+  background-color: #ccc; /* Gedempte grijze kleur */
+  color: #333; /* Donkere tekst */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.form-reset-button:hover {
+  background-color: #bbb; /* Iets donkerder grijs bij hover */
+  transform: translateY(-2px);
 }

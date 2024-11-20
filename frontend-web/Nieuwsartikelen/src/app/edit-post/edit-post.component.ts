@@ -57,4 +57,13 @@ export class EditPostComponent implements OnInit {
     const currentValue = this.editPostForm.get('isConcept')?.value;
     this.editPostForm.get('isConcept')?.setValue(!currentValue);
   }
+  onReset(): void {
+    this.editPostForm.reset({
+      title: '',
+      text: '',
+      author: '',
+      category: '',
+      isConcept: false, // Standaardwaarde terugzetten
+    });
+  }
 }
