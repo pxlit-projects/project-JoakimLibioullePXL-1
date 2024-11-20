@@ -1,0 +1,58 @@
+/* Algemene styling voor de navbar */
+.navbar {
+  background-color: #333; /* Donkere achtergrond */
+  color: #fff; /* Witte tekst */
+  padding: 10px 20px; /* Ruimte rondom */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtiele schaduw */
+}
+
+/* Styling voor de container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* Logo links, links rechts */
+  align-items: center; /* Verticaal centreren */
+}
+
+/* Merknaam styling */
+.navbar-brand {
+  font-size: 1.5rem; /* Grotere tekst voor merknaam */
+  font-weight: bold; /* Vetgedrukt */
+  letter-spacing: 1px; /* Letterafstand */
+}
+
+/* Link container styling */
+.navbar-links ul {
+  list-style: none; /* Geen opsommingstekens */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Links naast elkaar */
+  gap: 20px; /* Ruimte tussen links */
+}
+
+/* Individuele links */
+.navbar-links ul li a {
+  text-decoration: none; /* Geen onderstreping */
+  color: #fff; /* Witte tekst */
+  padding: 5px 10px; /* Ruimte rondom */
+  border-radius: 4px; /* Licht afgeronde hoeken */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Animatie-effect */
+}
+
+/* Hover effect op links */
+.navbar-links ul li a:hover {
+  background-color: #575757; /* Donkerdere achtergrond bij hover */
+  color: #e0e0e0; /* Lichtere tekst bij hover */
+}
+
+/* Responsieve styling */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column; /* Logo en links onder elkaar */
+    align-items: flex-start; /* Links uitlijnen */
+  }
+
+  .navbar-links ul {
+    flex-direction: column; /* Links onder elkaar */
+    gap: 10px; /* Kleinere ruimte tussen links */
+  }
+}
