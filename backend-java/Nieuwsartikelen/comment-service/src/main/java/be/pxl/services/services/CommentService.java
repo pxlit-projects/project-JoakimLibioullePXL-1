@@ -7,6 +7,8 @@ import be.pxl.services.domain.dto.CommentResponse;
 import be.pxl.services.repository.CommentRepository;
 import be.pxl.services.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +17,9 @@ import java.util.List;
 public class CommentService implements ICommentService{
     private final PostRepository postRepository;
     private final CommentRepository commentRepository;
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+
     @Override
     public List<CommentResponse> findCommentByPostId(Long postId) {
         List<Comment> comments = commentRepository.findCommentByPostId(postId);
