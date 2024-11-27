@@ -1,0 +1,16 @@
+<div class="comment-item">
+  <h2>{{ comment.username }}</h2>
+  <p *ngIf="!editing">{{ comment.comment }}</p>
+  <textarea
+    *ngIf="editing"
+    [(ngModel)]="editedComment"
+    class="edit-textarea"
+  ></textarea>
+
+  <!-- Knoppen voor acties -->
+  <div class="comment-actions">
+    <button *ngIf="!editing" class="edit-button" (click)="startEditing()">Edit</button>
+    <button *ngIf="editing" class="save-button" (click)="saveComment()">Save</button>
+    <button class="delete-button" (click)="deleteComment()">Delete</button>
+  </div>
+</div>

@@ -1,0 +1,148 @@
+/* Algemene styling */
+body {
+  font-family: 'Roboto', sans-serif; /* Modern lettertype */
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h3 {
+  margin-top: 0;
+  color: #444;
+}
+
+/* Post-detail sectie */
+.post-detail {
+  background: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-detail p {
+  font-size: 16px;
+  color: #333;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+
+.post-detail p:first-child {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1a73e8; /* Blauwe accentkleur voor de titel */
+}
+
+.post-detail p:nth-child(3) {
+  font-style: italic;
+  color: #555;
+}
+
+.post-detail button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.post-detail button:hover {
+  background-color: #0056b3;
+}
+
+/* Comments-sectie */
+.comments-section {
+  background: #ffffff;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Comment formulier */
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.comment-input,
+.comment-textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.comment-input:focus,
+.comment-textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.comment-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.comment-button:hover {
+  background-color: #218838;
+}
+
+/* Comment-item */
+.comment-item {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-item h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 5px;
+  color: #4a90e2;
+}
+
+.comment-item p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Splitsing tussen comments */
+.comment-item + .comment-item {
+  border-top: 1px solid #ddd;
+  padding-top: 15px;
+  margin-top: 15px;
+}

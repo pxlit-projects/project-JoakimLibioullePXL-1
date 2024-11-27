@@ -42,6 +42,12 @@ public class CommentService implements ICommentService{
         commentRepository.deleteById(id);
     }
 
+    @Override
+    public List<CommentResponse> getAllComments() {
+        List<Comment> comments = commentRepository.findAll();
+        return comments.stream().map(this::mapToCommentResponse).toList();
+    }
+
     private Comment mapToComment(CommentRequest commentRequest){
         return Comment.builder()
                 .postId(commentRequest.getPostId())

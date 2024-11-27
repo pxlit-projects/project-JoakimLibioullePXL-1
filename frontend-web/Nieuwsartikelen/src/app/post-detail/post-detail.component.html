@@ -1,10 +1,33 @@
-<div *ngIf="post$ | async as post">
+<div *ngIf="post$ | async as post" class="post-detail">
   <div>
-    <div>
-      <p>Title: {{post.title}}</p>
-      <p>Author: {{post.author}}</p>
-      <p>Category: {{post.category}}</p>
-    </div>
+    <p>Title: {{ post.title }}</p>
+    <p>Article: {{ post.text }}</p>
+    <p>Author: {{ post.author }}</p>
+    <p>Category: {{ post.category }}</p>
   </div>
   <button [routerLink]="['/edit-post', post.id]">Edit Post</button>
+</div>
+
+<div class="comments-section">
+  <h3>Comments</h3>
+  <form (ngSubmit)="onSubmit()" [formGroup]="addCommentForm" class="comment-form">
+    <input
+      type="text"
+      placeholder="Your Name"
+      formControlName="username"
+      class="comment-input"
+    />
+    <textarea
+      placeholder="Your Comment"
+      formControlName="comment"
+      class="comment-textarea"
+    ></textarea>
+    <button type="submit" class="comment-button">Add Comment</button>
+  </form>
+
+  <app-comment-item
+    *ngFor="let comment of comments"
+    [comment]="comment"
+    class="comment-item"
+  ></app-comment-item>
 </div>

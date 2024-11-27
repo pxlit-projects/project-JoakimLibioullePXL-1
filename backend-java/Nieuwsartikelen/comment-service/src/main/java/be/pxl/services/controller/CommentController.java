@@ -17,6 +17,7 @@ public class CommentController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void add(@RequestBody CommentRequest commentRequest){
+        System.out.println("Comment added: " + commentRequest);
         commentService.add(commentRequest);
     }
 
@@ -35,5 +36,10 @@ public class CommentController {
     @GetMapping("/{id}")
     public ResponseEntity findCommentByPostId(@PathVariable Long id){
         return new ResponseEntity(commentService.findCommentByPostId(id), HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity getAll(){
+        return new ResponseEntity(commentService.getAllComments(), HttpStatus.OK);
     }
 }

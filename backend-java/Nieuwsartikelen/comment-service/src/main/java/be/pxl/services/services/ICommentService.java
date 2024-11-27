@@ -11,4 +11,6 @@ public interface ICommentService {
     void add(CommentRequest commentRequest);
     void update(Long id, CommentRequest commentRequest) throws Exception;
     void delete(Long id);
+
+    List<CommentResponse> getAllComments();
 }
