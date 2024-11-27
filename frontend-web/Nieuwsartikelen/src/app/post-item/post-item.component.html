@@ -2,5 +2,6 @@
   <h2 class="post-title">{{ post.title }}</h2>
   <p class="post-author">By: {{ post.author }}</p>
   <p class="post-category">Category: {{ post.category }}</p>
+  <p class="post-date">Published on: {{ post.createdAt | date:'MMMM d, y' }}</p>
   <button class="post-button" [routerLink]="['/post', post.id]">Read More</button>
 </div>
