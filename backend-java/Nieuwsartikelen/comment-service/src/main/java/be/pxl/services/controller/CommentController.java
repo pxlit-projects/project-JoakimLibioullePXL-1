@@ -1,10 +1,7 @@
 package be.pxl.services.controller;
 
 import be.pxl.services.domain.dto.CommentRequest;
-import be.pxl.services.domain.dto.CommentResponse;
-import be.pxl.services.domain.dto.PostRequest;
 import be.pxl.services.services.ICommentService;
-import jakarta.validation.OverridesAttribute;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
