@@ -8,11 +8,12 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {CommentService} from "../shared/services/comment.service";
 import {CommentItemComponent} from "../comment-item/comment-item.component";
 import { Comment } from "../shared/models/comment.model";
+import {ReviewFormComponent} from "../review-form/review-form.component";
 
 @Component({
   selector: 'app-post-detail',
   standalone: true,
-  imports: [CommonModule, NgIf, NgClass, AsyncPipe, RouterLink, ReactiveFormsModule, NgForOf, CommentItemComponent],
+  imports: [CommonModule, NgIf, NgClass, AsyncPipe, RouterLink, ReactiveFormsModule, NgForOf, CommentItemComponent, ReviewFormComponent],
   templateUrl: './post-detail.component.html',
   styleUrls: ['./post-detail.component.css']
 })

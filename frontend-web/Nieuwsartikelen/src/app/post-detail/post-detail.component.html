@@ -8,6 +8,12 @@
   <button [routerLink]="['/edit-post', post.id]">Edit Post</button>
 </div>
 
+<div>
+  <h3>Post Review</h3>
+  <app-review-form [postId]="id"></app-review-form>
+</div>
+
+
 <div class="comments-section">
   <h3>Comments</h3>
   <form (ngSubmit)="onSubmit()" [formGroup]="addCommentForm" class="comment-form">

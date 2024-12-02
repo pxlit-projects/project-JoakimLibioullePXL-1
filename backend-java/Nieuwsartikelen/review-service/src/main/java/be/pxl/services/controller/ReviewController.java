@@ -15,9 +15,14 @@ import org.springframework.web.bind.annotation.*;
 public class ReviewController {
     private final IReviewService reviewService;
 
+    @GetMapping
+    public ResponseEntity getAll(){
+        return new ResponseEntity(reviewService.getAllReviews(), HttpStatus.OK);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity findReviewByPostId(@PathVariable Long id){
-        return new ResponseEntity(reviewService.getReviewByPostId(id), HttpStatus.OK);
+        return new ResponseEntity(reviewService.getReviewResponseByPostId(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
@@ -25,13 +30,15 @@ public class ReviewController {
         reviewService.setPostStatus(id, reviewRequest);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/comment/{id}")
     public void addComment(@PathVariable Long id, @RequestBody String comment) throws Exception {
+        System.out.println("Comment added: " + comment);
         reviewService.addComment(id, comment);
     }
 
     @PostMapping
     public void addReview(@RequestBody ReviewRequest reviewRequest){
+        System.out.println("Review added: " + reviewRequest);
         reviewService.addReview(reviewRequest);
     }
 

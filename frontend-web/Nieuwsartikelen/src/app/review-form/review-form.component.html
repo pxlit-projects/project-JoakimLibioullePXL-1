@@ -1,0 +1,26 @@
+<div *ngIf="review">
+  <p><strong>Huidige Status:</strong> {{ review.status }}</p>
+  <p *ngIf="review.comment"><strong>Comment:</strong> {{ review.comment }}</p>
+</div>
+
+<div class="review-actions">
+  <button class="approve-button" (click)="approvePost()">Goedkeuren</button>
+  <button class="deny-button" (click)="denyPost()">Afkeuren</button>
+</div>
+
+<div *ngIf="isDenied" class="comment-section">
+  <form [formGroup]="reviewForm" (ngSubmit)="submitComment()">
+    <label for="comment">Waarom wordt deze post afgekeurd?</label>
+    <textarea
+      id="comment"
+      formControlName="comment"
+      placeholder="Laat een opmerking achter..."
+      rows="4"
+    ></textarea>
+    <button type="submit" [disabled]="reviewForm.invalid">Verstuur Comment</button>
+  </form>
+</div>
+
+<div *ngIf="review">
+  <button class="delete-button" (click)="deleteReview()">Verwijder Review</button>
+</div>
