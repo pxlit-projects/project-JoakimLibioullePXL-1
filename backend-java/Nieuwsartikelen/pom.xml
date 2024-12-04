@@ -28,6 +28,7 @@
 		<module>gateway-service</module>
         <module>comment-service</module>
         <module>review-service</module>
+        <module>log-service</module>
     </modules>
     <scm>
 		<connection/>
