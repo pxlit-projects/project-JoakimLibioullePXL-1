@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ReviewService } from '../shared/services/review.service';
 import { Review, Status } from '../shared/models/review.model';
 import { CommonModule } from '@angular/common';
+import emailjs from '@emailjs/browser';
+import {Post} from "../shared/models/post.model";
 
 @Component({
   selector: 'app-review-form',
@@ -44,6 +46,9 @@ export class ReviewFormComponent implements OnInit {
         status: Status.ACCEPTED,
         comment: '',
       };
+
+      this.sendEmail(" " + this.postId, Status.ACCEPTED);
+
       this.reviewService.addReview(newReview).subscribe({
         next: () => this.loadReview(),
         error: (err) => console.error('Error bij goedkeuren:', err),
@@ -66,6 +71,9 @@ export class ReviewFormComponent implements OnInit {
         status: Status.DENIED,
         comment: '',
       };
+
+      this.sendEmail( " " + this.postId, Status.DENIED);
+
       this.reviewService.addReview(newReview).subscribe({
         next: () => {
           this.loadReview();
@@ -114,5 +122,24 @@ export class ReviewFormComponent implements OnInit {
         error: (err) => console.error('Error bij verwijderen review:', err),
       });
     }
+  }
+
+  sendEmail(title: string, postStatus: string) {
+    // Template data invullen
+    const templateParams = {
+      title: title,
+      post_status: postStatus
+    };
+
+    // Email versturen met EmailJS
+    emailjs.init('Ev4yzusKjXTjqLNXt'); // Je Public Key
+
+    emailjs.send('service_kl0m4hg', 'template_x2l2uri', templateParams, 'Ev4yzusKjXTjqLNXt')
+      .then((response) => {
+        console.log('Succesvol verstuurd!', response.status, response.text);
+      })
+      .catch((error) => {
+        console.error('Fout bij het versturen:', error);
+      });
   }
 }
