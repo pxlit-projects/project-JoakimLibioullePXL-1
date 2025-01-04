@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: . # Zorg ervoor dat dit de map is waar je Dockerfile staat
+      dockerfile: docker-compose.yml
+    ports:
+      - "4200:80" # Pas de poorten aan zoals nodig
