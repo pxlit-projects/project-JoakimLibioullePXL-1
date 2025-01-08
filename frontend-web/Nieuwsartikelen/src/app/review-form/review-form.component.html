@@ -1,6 +1,6 @@
 <div *ngIf="review">
-  <p><strong>Huidige Status:</strong> {{ review.status }}</p>
-  <p *ngIf="review.comment"><strong>Comment:</strong> {{ review.comment }}</p>
+  <p><strong>Huidige Status:</strong> {{ review?.status }}</p>
+  <p *ngIf="review?.comment"><strong>Comment:</strong> {{ review?.comment }}</p>
 </div>
 
 <div class="review-actions">

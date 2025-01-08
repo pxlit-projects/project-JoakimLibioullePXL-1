@@ -12,8 +12,4 @@ import { RouterLink } from '@angular/router';
 })
 export class PostItemComponent {
   @Input() post!: Post;
-
-  getDetails(): void {
-    console.log(this.post); //TODO: route to correct page
-  }
 }

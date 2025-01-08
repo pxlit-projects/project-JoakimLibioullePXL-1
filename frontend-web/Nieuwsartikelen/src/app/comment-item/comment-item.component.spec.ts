@@ -4,7 +4,7 @@ import { CommentService } from '../shared/services/comment.service';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
-
+import { By } from '@angular/platform-browser'; // Om DOM-elementen te selecteren
 describe('CommentItemComponent', () => {
   let component: CommentItemComponent;
   let fixture: ComponentFixture<CommentItemComponent>;
@@ -135,4 +135,111 @@ describe('CommentItemComponent', () => {
 
     expect(component.comment.comment).toEqual('Originele comment'); // Originele comment moet intact zijn
   });
+});
+
+describe('CommentItemComponent DOM Tests', () => {
+  let component: CommentItemComponent;
+  let fixture: ComponentFixture<CommentItemComponent>;
+  let mockCommentService: jasmine.SpyObj<CommentService>;
+  let mockActivatedRoute: any;
+
+  beforeEach(() => {
+    mockActivatedRoute = { snapshot: { params: { id: 1 } } };
+    mockCommentService = jasmine.createSpyObj('CommentService', ['updateComment', 'deleteComment']);
+
+    TestBed.configureTestingModule({
+      declarations: [CommentItemComponent],
+      imports: [FormsModule],
+      providers: [
+        { provide: CommentService, useValue: mockCommentService },
+        { provide: ActivatedRoute, useValue: mockActivatedRoute },
+      ],
+    });
+
+    fixture = TestBed.createComponent(CommentItemComponent);
+    component = fixture.componentInstance;
+    component.comment = {
+      id: 1,
+      comment: 'Test comment',
+      postId: 5,
+      username: 'TestUser',
+    };
+
+    fixture.detectChanges();
+  });
+
+  it('moet de comment weergeven in de DOM', () => {
+    const commentText = fixture.debugElement.query(By.css('.comment-text')).nativeElement;
+    expect(commentText.textContent).toContain('Test comment');
+  });
+
+  it('moet een input veld tonen wanneer de bewerkmodus start', fakeAsync(() => {
+    const editButton = fixture.debugElement.query(By.css('.edit-button')).nativeElement;
+    editButton.click();
+
+    fixture.detectChanges();
+    tick();
+
+    const inputField = fixture.debugElement.query(By.css('.comment-input')).nativeElement;
+    expect(inputField).toBeTruthy();
+    expect(inputField.value).toBe('Test comment');
+  }));
+
+  it('moet een gewijzigde comment opslaan en tonen in de DOM', fakeAsync(() => {
+    const editButton = fixture.debugElement.query(By.css('.edit-button')).nativeElement;
+    editButton.click();
+
+    fixture.detectChanges();
+    tick();
+
+    const inputField = fixture.debugElement.query(By.css('.comment-input')).nativeElement;
+    inputField.value = 'Gewijzigde comment';
+    inputField.dispatchEvent(new Event('input'));
+
+    const saveButton = fixture.debugElement.query(By.css('.save-button')).nativeElement;
+    mockCommentService.updateComment.and.returnValue(of(void 0));
+    saveButton.click();
+
+    fixture.detectChanges();
+    tick();
+
+    expect(mockCommentService.updateComment).toHaveBeenCalledWith(1, jasmine.objectContaining({ comment: 'Gewijzigde comment' }));
+    const commentText = fixture.debugElement.query(By.css('.comment-text')).nativeElement;
+    expect(commentText.textContent).toContain('Gewijzigde comment');
+  }));
+
+  it('moet de originele waarde herstellen bij annuleren', fakeAsync(() => {
+    const editButton = fixture.debugElement.query(By.css('.edit-button')).nativeElement;
+    editButton.click();
+
+    fixture.detectChanges();
+    tick();
+
+    const inputField = fixture.debugElement.query(By.css('.comment-input')).nativeElement;
+    inputField.value = 'Gewijzigde comment';
+    inputField.dispatchEvent(new Event('input'));
+
+    const cancelButton = fixture.debugElement.query(By.css('.cancel-button')).nativeElement;
+    cancelButton.click();
+
+    fixture.detectChanges();
+    tick();
+
+    const commentText = fixture.debugElement.query(By.css('.comment-text')).nativeElement;
+    expect(commentText.textContent).toContain('Test comment');
+  }));
+
+  it('moet een comment verwijderen uit de DOM', fakeAsync(() => {
+    mockCommentService.deleteComment.and.returnValue(of(void 0));
+
+    const deleteButton = fixture.debugElement.query(By.css('.delete-button')).nativeElement;
+    deleteButton.click();
+
+    fixture.detectChanges();
+    tick();
+
+    const componentElement = fixture.debugElement.query(By.css('app-comment-item'));
+    expect(componentElement).toBeFalsy();
+    expect(mockCommentService.deleteComment).toHaveBeenCalledWith(1);
+  }));
 });
